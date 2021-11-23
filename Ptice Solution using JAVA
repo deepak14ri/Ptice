@@ -1,0 +1,54 @@
+import java.io.*;
+import java.util.*;
+public class Main {
+    public static void main(String args[]) {
+      String Andrian = "ABC";
+      String Bruno = "BABC";
+      String Goran = "CCAABB";
+      int andrianScore = 0;
+      int brunoScore = 0;
+      int goranScore = 0;
+
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+
+      while(Andrian.length()<n){
+          Andrian+="ABC";
+      }
+      Andrian = Andrian.substring(0,n);
+      while(Bruno.length()<n){
+          Bruno+="BABC";
+      }
+      Bruno = Bruno.substring(0,n);
+      //System.out.println(Bruno);
+      while(Goran.length()<n){
+          Goran+="CCAABB";
+      }
+      Goran = Goran.substring(0,n);
+      String ans = sc.next();
+      for(int i=0;i<n;i++){
+          if(ans.charAt(i) == Andrian.charAt(i)){
+              andrianScore++;
+          }
+          if(ans.charAt(i) == Bruno.charAt(i)){
+              brunoScore++;
+          }
+          if(ans.charAt(i) == Goran.charAt(i)){
+              goranScore++;
+          }
+      }
+      int maxScore = Math.max(andrianScore, Math.max(brunoScore, goranScore));
+      
+      System.out.println(maxScore);
+      if(andrianScore==maxScore){
+          System.out.println("Andrian");
+      }
+      if(brunoScore==maxScore){
+          System.out.println("Bruno");
+      }
+      if(goranScore==maxScore){
+          System.out.println("Goran");
+      }
+    }
+
+}
